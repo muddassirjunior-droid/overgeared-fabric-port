@@ -1,6 +1,6 @@
 package net.stirdrem.overgeared.recipe;
 
-import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
@@ -17,7 +17,7 @@ public class BlueprintCloningRecipe extends SpecialCraftingRecipe {
     }
 
     @Override
-    public boolean matches(CraftingInventory inv, World world) {
+    public boolean matches(RecipeInputInventory inv, World world) {
         int blueprintCount = 0;
         ItemStack emptyBlueprint = ItemStack.EMPTY;
 
@@ -44,7 +44,7 @@ public class BlueprintCloningRecipe extends SpecialCraftingRecipe {
 
 
     @Override
-    public ItemStack craft(CraftingInventory inv, DynamicRegistryManager registryAccess) {
+    public ItemStack craft(RecipeInputInventory inv, DynamicRegistryManager registryAccess) {
         ItemStack source = ItemStack.EMPTY;
 
         for (int j = 0; j < inv.size(); ++j) {

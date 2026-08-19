@@ -9,7 +9,7 @@ import java.util.List;
 public interface INetherAlloyRecipe {
     List<Ingredient> getIngredientsList();
 
-    ItemStack getResultItem(DynamicRegistryManager registryAccess);
+    ItemStack getOutput(DynamicRegistryManager registryAccess);
 
     float getExperience();
 
