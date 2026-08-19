@@ -1,6 +1,5 @@
 package net.stirdrem.overgeared.networking;
 
-import net.fabricmc.fabric.api.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.network.PacketByteBuf;
@@ -48,9 +47,8 @@ public class ModMessages {
                 MinigameSetStartedC2SPacket.handle(MinigameSetStartedC2SPacket.decode(buf), server, player));
     }
 
-    public static void sendToServer(Identifier channel, PacketByteBuf buf) {
-        ClientPlayNetworking.send(channel, buf);
-    }
+    // sendToServer intentionally lives in the client package (ClientModMessages), not here -
+    // ClientPlayNetworking is a client-only class, and this class is loaded on both sides.
 
     public static void sendToPlayer(Identifier channel, PacketByteBuf buf, ServerPlayerEntity player) {
         ServerPlayNetworking.send(player, channel, buf);

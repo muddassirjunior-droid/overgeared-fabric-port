@@ -3,13 +3,33 @@ package net.stirdrem.overgeared;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.World;
+import net.stirdrem.overgeared.block.ModBlocks;
 import net.stirdrem.overgeared.config.ClientConfig;
 import net.stirdrem.overgeared.config.ServerConfig;
+import net.stirdrem.overgeared.entity.ModEntities;
+import net.stirdrem.overgeared.event.ModItemInteractEvents;
+import net.stirdrem.overgeared.item.ModItems;
+import net.stirdrem.overgeared.item.ToolTypeRegistry;
+import net.stirdrem.overgeared.networking.ModMessages;
+import net.stirdrem.overgeared.recipe.CoolingRecipe;
+import net.stirdrem.overgeared.recipe.ModRecipeTypes;
+import net.stirdrem.overgeared.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
+import java.util.Optional;
 
 public class Overgeared implements ModInitializer {
     public static final String MOD_ID = "overgeared";
@@ -44,6 +64,53 @@ public class Overgeared implements ModInitializer {
         ServerLifecycleEvents.SERVER_STARTED.register(s -> server = s);
         ServerLifecycleEvents.SERVER_STOPPED.register(s -> server = null);
 
+        // Force static init / registration for each registry class.
+        ModItems.register();
+        ModBlocks.register();
+        ModEntities.register();
+        ModSounds.register();
+
+        ToolTypeRegistry.init();
+
         net.stirdrem.overgeared.event.ReloadListenerRegistry.register();
+        ModItemInteractEvents.register();
+        ModMessages.register();
+    }
+
+    @Nullable
+    public static Item getCooledItem(@Nullable Item heatedItem, World world) {
+        if (heatedItem == null || world == null) return null;
+
+        SimpleInventory container = new SimpleInventory(new ItemStack(heatedItem));
+
+        Optional<CoolingRecipe> recipeOpt = world.getRecipeManager()
+                .listAllOfType(ModRecipeTypes.COOLING_RECIPE)
+                .stream()
+                .filter(r -> r.matches(container, world))
+                .findFirst();
+
+        if (recipeOpt.isEmpty()) {
+            return heatedItem;
+        }
+
+        CoolingRecipe recipe = recipeOpt.get();
+        ItemStack result = recipe.getOutput(world.getRegistryManager());
+        return result.isEmpty() ? heatedItem : result.getItem();
+    }
+
+    public static boolean isDurabilityBlacklisted(ItemStack stack) {
+        Identifier itemId = Registries.ITEM.getId(stack.getItem());
+        List<? extends String> blacklist = ServerConfig.BASE_DURABILITY_BLACKLIST.get();
+
+        for (String entry : blacklist) {
+            if (entry.startsWith("#")) {
+                Identifier tagId = Identifier.tryParse(entry.substring(1));
+                TagKey<Item> tag = TagKey.of(RegistryKeys.ITEM, tagId);
+                if (stack.isIn(tag)) return true;
+            } else {
+                if (itemId != null && itemId.equals(Identifier.tryParse(entry))) return true;
+            }
+        }
+        return net.stirdrem.overgeared.datapack.DurabilityBlacklistReloadListener.isBlacklisted(stack);
     }
 }
