@@ -70,6 +70,7 @@ public class Overgeared implements ModInitializer {
         ModBlocks.register();
         net.stirdrem.overgeared.block.entity.ModBlockEntities.register();
         net.stirdrem.overgeared.screen.ModMenuTypes.register();
+        net.stirdrem.overgeared.item.ModCreativeModeTabs.register();
         ModEntities.register();
         ModSounds.register();
 
