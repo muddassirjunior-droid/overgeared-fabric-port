@@ -1,6 +1,7 @@
 package net.stirdrem.overgeared.block.entity;
 
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ExperienceOrbEntity;
@@ -12,9 +13,10 @@ import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -34,7 +36,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class NetherAlloySmelterBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, Inventory, SidedInventory {
+public class NetherAlloySmelterBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, Inventory, SidedInventory {
     // Total slots: 9 inputs + 1 fuel + 1 output = 11 slots
     private static final int INPUT_SLOTS = 9;
     private static final int FUEL_SLOT = 9;
@@ -228,6 +230,11 @@ public class NetherAlloySmelterBlockEntity extends BlockEntity implements NamedS
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
         return new NetherAlloySmelterScreenHandler(syncId, playerInventory, this, this.data);
+    }
+
+    @Override
+    public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
+        buf.writeBlockPos(pos);
     }
 
     public void awardStoredExperience(PlayerEntity player) {

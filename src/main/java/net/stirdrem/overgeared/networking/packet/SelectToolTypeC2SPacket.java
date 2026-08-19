@@ -6,7 +6,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.stirdrem.overgeared.Overgeared;
 import net.stirdrem.overgeared.item.ToolType;
 import net.stirdrem.overgeared.item.ToolTypeRegistry;
-import net.stirdrem.overgeared.screen.BlueprintWorkbenchMenu;
+import net.stirdrem.overgeared.screen.BlueprintWorkbenchScreenHandler;
 
 import java.util.Optional;
 
@@ -33,11 +33,11 @@ public class SelectToolTypeC2SPacket {
             Optional<ToolType> optional = ToolTypeRegistry.byId(msg.toolTypeId);
             if (optional.isPresent()) {
                 Overgeared.LOGGER.debug("ToolType '{}' found. Proceeding to create blueprint.", msg.toolTypeId);
-                if (player.currentScreenHandler instanceof BlueprintWorkbenchMenu menu) {
+                if (player.currentScreenHandler instanceof BlueprintWorkbenchScreenHandler menu) {
                     menu.createBlueprint(optional.get());
                     menu.sendContentUpdates(); // ensure client sync
                 } else {
-                    Overgeared.LOGGER.warn("Player '{}' is not in BlueprintWorkbenchMenu, but in {}",
+                    Overgeared.LOGGER.warn("Player '{}' is not in BlueprintWorkbenchScreenHandler, but in {}",
                             player.getGameProfile().getName(),
                             player.currentScreenHandler.getClass().getSimpleName());
                 }

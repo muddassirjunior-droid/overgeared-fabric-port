@@ -66,7 +66,7 @@ import net.stirdrem.overgeared.recipe.CoolingRecipe;
 import net.stirdrem.overgeared.recipe.ForgingRecipe;
 import net.stirdrem.overgeared.recipe.GrindingRecipe;
 import net.stirdrem.overgeared.recipe.ModRecipeTypes;
-import net.stirdrem.overgeared.screen.FletchingStationMenu;
+import net.stirdrem.overgeared.screen.FletchingStationScreenHandler;
 import net.stirdrem.overgeared.screen.RockKnappingMenuProvider;
 import net.stirdrem.overgeared.util.ModTags;
 import net.stirdrem.overgeared.util.QualityHelper;
@@ -1129,7 +1129,7 @@ public class ModItemInteractEvents {
 
         SimpleNamedScreenHandlerFactory provider = new SimpleNamedScreenHandlerFactory(
                 (syncId, playerInv, p) ->
-                        new FletchingStationMenu(
+                        new FletchingStationScreenHandler(
                                 syncId,
                                 playerInv,
                                 ScreenHandlerContext.create(world, pos)
