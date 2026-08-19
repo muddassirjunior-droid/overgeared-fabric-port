@@ -19,6 +19,8 @@ public class OvergearedClient implements ClientModInitializer {
     public void onInitializeClient() {
         ClientModMessages.register();
         AnvilMinigameEvents.register();
+        AnvilMinigameOverlay.register();
+        PopupOverlay.register();
         OvergearedTooltipEvents.register();
 
         HandledScreens.register(ModMenuTypes.STEEL_SMITHING_ANVIL_MENU, SteelSmithingAnvilScreen::new);
