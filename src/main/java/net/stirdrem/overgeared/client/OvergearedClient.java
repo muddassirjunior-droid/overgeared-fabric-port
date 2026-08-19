@@ -7,5 +7,6 @@ public class OvergearedClient implements ClientModInitializer {
     public void onInitializeClient() {
         ClientModMessages.register();
         AnvilMinigameEvents.register();
+        OvergearedTooltipEvents.register();
     }
 }

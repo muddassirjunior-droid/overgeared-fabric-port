@@ -13,6 +13,7 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
+import net.stirdrem.overgeared.advancement.ModAdvancementTriggers;
 import net.stirdrem.overgeared.block.ModBlocks;
 import net.stirdrem.overgeared.config.ClientConfig;
 import net.stirdrem.overgeared.config.ServerConfig;
@@ -71,9 +72,11 @@ public class Overgeared implements ModInitializer {
         ModSounds.register();
 
         ToolTypeRegistry.init();
+        ModAdvancementTriggers.register();
 
         net.stirdrem.overgeared.event.ReloadListenerRegistry.register();
         ModItemInteractEvents.register();
+        net.stirdrem.overgeared.event.ModEvents.register();
         ModMessages.register();
     }
 
