@@ -43,5 +43,7 @@ public class Overgeared implements ModInitializer {
 
         ServerLifecycleEvents.SERVER_STARTED.register(s -> server = s);
         ServerLifecycleEvents.SERVER_STOPPED.register(s -> server = null);
+
+        net.stirdrem.overgeared.event.ReloadListenerRegistry.register();
     }
 }
