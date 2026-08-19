@@ -68,6 +68,7 @@ public class Overgeared implements ModInitializer {
         // Force static init / registration for each registry class.
         ModItems.register();
         ModBlocks.register();
+        net.stirdrem.overgeared.block.entity.ModBlockEntities.register();
         ModEntities.register();
         ModSounds.register();
 
