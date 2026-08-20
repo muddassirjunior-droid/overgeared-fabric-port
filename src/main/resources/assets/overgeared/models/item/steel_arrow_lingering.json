@@ -1,5 +1,5 @@
 {
-  "parent": "item/generated",
+  "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "overgeared:item/lingering_steel_arrow_head",
     "layer1": "overgeared:item/lingering_steel_arrow_base"

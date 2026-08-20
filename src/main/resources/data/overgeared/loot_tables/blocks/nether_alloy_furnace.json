@@ -1,5 +1,4 @@
 {
-  "type": "minecraft:block",
   "pools": [
     {
       "bonus_rolls": 0.0,
@@ -10,11 +9,13 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "overgeared:nether_alloy_furnace"
+          "name": "overgeared:nether_alloy_furnace",
+          "type": "minecraft:item"
         }
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "overgeared:blocks/nether_alloy_furnace",
+  "type": "minecraft:block"
 }
