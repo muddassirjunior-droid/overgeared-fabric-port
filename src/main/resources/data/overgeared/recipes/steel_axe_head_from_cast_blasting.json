@@ -1,0 +1,14 @@
+{
+  "type": "overgeared:cast_blasting",
+  "category": "misc",
+  "tool_type": "axe",
+  "input": {
+    "steel": 27
+  },
+  "result": {
+    "item": "overgeared:steel_axe_head"
+  },
+  "need_polishing": true,
+  "experience": 0.9,
+  "cookingtime": 75
+}

@@ -1,0 +1,14 @@
+{
+  "type": "overgeared:cast_smelting",
+  "category": "misc",
+  "tool_type": "shovel",
+  "input": {
+    "copper": 9
+  },
+  "result": {
+    "item": "overgeared:copper_shovel_head"
+  },
+  "need_polishing": true,
+  "experience": 0.5,
+  "cookingtime": 150
+}

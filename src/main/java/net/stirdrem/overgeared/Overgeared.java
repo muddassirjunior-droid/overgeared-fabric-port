@@ -13,8 +13,14 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
+import net.minecraft.block.DispenserBlock;
 import net.stirdrem.overgeared.advancement.ModAdvancementTriggers;
 import net.stirdrem.overgeared.block.ModBlocks;
+import net.stirdrem.overgeared.block.UpgradeArrowDispenseBehavior;
+import net.stirdrem.overgeared.compat.accessories.AttributeModifierHandler;
+import net.stirdrem.overgeared.loot.ModLootModifiers;
+import net.stirdrem.overgeared.command.ModCommands;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.stirdrem.overgeared.config.ClientConfig;
 import net.stirdrem.overgeared.config.ServerConfig;
 import net.stirdrem.overgeared.entity.ModEntities;
@@ -24,6 +30,7 @@ import net.stirdrem.overgeared.item.ToolTypeRegistry;
 import net.stirdrem.overgeared.networking.ModMessages;
 import net.stirdrem.overgeared.recipe.CoolingRecipe;
 import net.stirdrem.overgeared.recipe.ModRecipeTypes;
+import net.stirdrem.overgeared.recipe.ModRecipes;
 import net.stirdrem.overgeared.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
@@ -68,6 +75,14 @@ public class Overgeared implements ModInitializer {
         // Force static init / registration for each registry class.
         ModItems.register();
         ModBlocks.register();
+        ModRecipes.register();
+        ModRecipeTypes.register();
+
+        UpgradeArrowDispenseBehavior dispenseBehavior = new UpgradeArrowDispenseBehavior();
+        DispenserBlock.registerBehavior(ModItems.LINGERING_ARROW, dispenseBehavior);
+        DispenserBlock.registerBehavior(ModItems.IRON_UPGRADE_ARROW, dispenseBehavior);
+        DispenserBlock.registerBehavior(ModItems.STEEL_UPGRADE_ARROW, dispenseBehavior);
+        DispenserBlock.registerBehavior(ModItems.DIAMOND_UPGRADE_ARROW, dispenseBehavior);
         net.stirdrem.overgeared.block.entity.ModBlockEntities.register();
         net.stirdrem.overgeared.screen.ModMenuTypes.register();
         net.stirdrem.overgeared.item.ModCreativeModeTabs.register();
@@ -81,6 +96,17 @@ public class Overgeared implements ModInitializer {
         ModItemInteractEvents.register();
         net.stirdrem.overgeared.event.ModEvents.register();
         ModMessages.register();
+
+        if (FabricLoader.getInstance().isModLoaded("accessories")) {
+            AttributeModifierHandler.register();
+            LOGGER.info("Accessories mod detected - AttributeModifierHandler registered");
+        } else {
+            LOGGER.info("Accessories mod not present - skipping AttributeModifierHandler registration");
+        }
+
+        ModLootModifiers.register();
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) ->
+                ModCommands.register(dispatcher));
     }
 
     @Nullable

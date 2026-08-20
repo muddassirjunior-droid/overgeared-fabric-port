@@ -1,0 +1,21 @@
+{
+  "type": "overgeared:forging",
+  "category": "armors",
+  "hammering": 4,
+  "need_quenching": false,
+  "has_polishing": false,
+  "pattern": [
+    "###",
+    "# #",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "item": "overgeared:steel_plate"
+    }
+  },
+  "result": {
+    "item": "overgeared:steel_leggings"
+  },
+  "show_notification": true
+}

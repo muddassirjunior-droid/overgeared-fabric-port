@@ -1,0 +1,17 @@
+{
+  "type": "overgeared:forging",
+  "category": "tool_heads",
+  "hammering": 4,
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "overgeared:heated_steel_ingot"
+    }
+  },
+  "result": {
+    "item": "overgeared:steel_shovel_head"
+  },
+  "show_notification": true
+}

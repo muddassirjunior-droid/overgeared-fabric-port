@@ -1,0 +1,14 @@
+{
+  "type": "overgeared:cast_smelting",
+  "category": "misc",
+  "tool_type": "shovel",
+  "input": {
+    "gold": 9
+  },
+  "result": {
+    "item": "overgeared:golden_shovel_head"
+  },
+  "need_polishing": true,
+  "experience": 1.0,
+  "cookingtime": 150
+}

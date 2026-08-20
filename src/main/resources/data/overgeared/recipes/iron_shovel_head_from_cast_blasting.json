@@ -1,0 +1,14 @@
+{
+  "type": "overgeared:cast_blasting",
+  "category": "misc",
+  "tool_type": "shovel",
+  "input": {
+    "iron": 9
+  },
+  "result": {
+    "item": "overgeared:iron_shovel_head"
+  },
+  "need_polishing": true,
+  "experience": 0.7,
+  "cookingtime": 75
+}

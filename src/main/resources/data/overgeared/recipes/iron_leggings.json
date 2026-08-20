@@ -1,0 +1,22 @@
+{
+  "type": "overgeared:forging",
+  "category": "armors",
+  "tier": "stone",
+  "hammering": 4,
+  "need_quenching": false,
+  "has_polishing": false,
+  "pattern": [
+    "###",
+    "# #",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "tag": "overgeared:iron_plates"
+    }
+  },
+  "result": {
+    "item": "minecraft:iron_leggings"
+  },
+  "show_notification": true
+}

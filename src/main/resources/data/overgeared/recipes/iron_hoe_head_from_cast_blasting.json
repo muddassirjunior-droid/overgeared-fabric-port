@@ -1,0 +1,14 @@
+{
+  "type": "overgeared:cast_blasting",
+  "category": "misc",
+  "tool_type": "hoe",
+  "input": {
+    "iron": 18
+  },
+  "result": {
+    "item": "overgeared:iron_hoe_head"
+  },
+  "need_polishing": true,
+  "experience": 0.7,
+  "cookingtime": 75
+}

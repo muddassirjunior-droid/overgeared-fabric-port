@@ -1,0 +1,14 @@
+{
+  "type": "overgeared:cast_blasting",
+  "category": "misc",
+  "tool_type": "axe",
+  "input": {
+    "copper": 27
+  },
+  "result": {
+    "item": "overgeared:copper_axe_head"
+  },
+  "need_polishing": true,
+  "experience": 0.5,
+  "cookingtime": 75
+}

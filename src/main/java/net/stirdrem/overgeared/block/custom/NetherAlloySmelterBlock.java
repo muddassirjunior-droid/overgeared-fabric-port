@@ -2,6 +2,7 @@ package net.stirdrem.overgeared.block.custom;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.ShapeContext;
@@ -43,6 +44,12 @@ public class NetherAlloySmelterBlock extends BlockWithEntity {
         this.setDefaultState(this.stateManager.getDefaultState()
                 .with(FACING, Direction.NORTH)
                 .with(LIT, false));
+    }
+
+    // BlockWithEntity defaults to INVISIBLE - see AbstractSmithingAnvil.getRenderType for why.
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
     }
 
     @Override

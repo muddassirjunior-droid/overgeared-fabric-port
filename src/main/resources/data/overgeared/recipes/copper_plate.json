@@ -1,0 +1,20 @@
+{
+  "type": "overgeared:forging",
+  "category": "misc",
+  "tier": "stone",
+  "hammering": 3,
+  "has_quality": false,
+  "need_quenching": false,
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "item": "overgeared:copper_plate"
+  },
+  "show_notification": true
+}

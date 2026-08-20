@@ -1,0 +1,14 @@
+{
+  "type": "overgeared:cast_smelting",
+  "category": "misc",
+  "tool_type": "sword",
+  "input": {
+    "gold": 18
+  },
+  "result": {
+    "item": "overgeared:golden_sword_blade"
+  },
+  "need_polishing": true,
+  "experience": 1.0,
+  "cookingtime": 150
+}

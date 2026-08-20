@@ -1,0 +1,14 @@
+{
+  "type": "overgeared:cast_blasting",
+  "category": "misc",
+  "tool_type": "hammer",
+  "input": {
+    "copper": 18
+  },
+  "result": {
+    "item": "overgeared:copper_hammer_head"
+  },
+  "need_polishing": true,
+  "experience": 0.5,
+  "cookingtime": 75
+}

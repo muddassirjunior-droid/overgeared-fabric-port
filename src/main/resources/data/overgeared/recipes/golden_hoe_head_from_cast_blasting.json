@@ -1,0 +1,14 @@
+{
+  "type": "overgeared:cast_blasting",
+  "category": "misc",
+  "tool_type": "hoe",
+  "input": {
+    "gold": 18
+  },
+  "result": {
+    "item": "overgeared:golden_hoe_head"
+  },
+  "need_polishing": true,
+  "experience": 1.0,
+  "cookingtime": 75
+}

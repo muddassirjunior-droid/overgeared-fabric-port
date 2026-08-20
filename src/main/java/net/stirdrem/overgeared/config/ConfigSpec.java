@@ -25,12 +25,14 @@ import java.util.function.Supplier;
  */
 public class ConfigSpec {
     private final Map<String, ConfigValue<?>> values;
+    private Path loadedPath;
 
     private ConfigSpec(Map<String, ConfigValue<?>> values) {
         this.values = values;
     }
 
     public void load(Path path) {
+        this.loadedPath = path;
         if (Files.exists(path)) {
             try {
                 JsonElement parsed = JsonParser.parseString(Files.readString(path));
@@ -47,6 +49,14 @@ public class ConfigSpec {
             }
         }
         save(path);
+    }
+
+    /**
+     * Re-saves to the path last passed to load(). Used by the in-game config screen after
+     * edits, since it only holds references to the individual ConfigValues, not the path.
+     */
+    public void save() {
+        if (loadedPath != null) save(loadedPath);
     }
 
     public void save(Path path) {
@@ -129,6 +139,10 @@ public class ConfigSpec {
             return value;
         }
 
+        public void set(T newValue) {
+            this.value = newValue;
+        }
+
         abstract void loadFromJson(JsonElement element);
 
         abstract void writeToJson(JsonObject parent, String key);
@@ -159,6 +173,19 @@ public class ConfigSpec {
             this.max = max;
         }
 
+        public int getMin() {
+            return min;
+        }
+
+        public int getMax() {
+            return max;
+        }
+
+        @Override
+        public void set(Integer newValue) {
+            super.set(Math.max(min, Math.min(max, newValue)));
+        }
+
         @Override
         void loadFromJson(JsonElement e) {
             if (e.isJsonPrimitive()) value = Math.max(min, Math.min(max, e.getAsInt()));
@@ -177,6 +204,19 @@ public class ConfigSpec {
             super(defaultValue);
             this.min = min;
             this.max = max;
+        }
+
+        public double getMin() {
+            return min;
+        }
+
+        public double getMax() {
+            return max;
+        }
+
+        @Override
+        public void set(Double newValue) {
+            super.set(Math.max(min, Math.min(max, newValue)));
         }
 
         @Override

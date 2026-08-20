@@ -47,6 +47,12 @@ public class AlloySmelterBlock extends BlockWithEntity {
                 .with(LIT, false));
     }
 
+    // BlockWithEntity defaults to INVISIBLE - see AbstractSmithingAnvil.getRenderType for why.
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
+    }
+
     // ----- State and placement -----
     @Override
     public BlockState getPlacementState(ItemPlacementContext context) {

@@ -1,0 +1,14 @@
+{
+  "type": "overgeared:cast_smelting",
+  "category": "misc",
+  "tool_type": "sword",
+  "input": {
+    "steel": 18
+  },
+  "result": {
+    "item": "overgeared:steel_sword_blade"
+  },
+  "need_polishing": true,
+  "experience": 0.9,
+  "cookingtime": 150
+}

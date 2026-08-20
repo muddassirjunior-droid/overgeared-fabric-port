@@ -1,0 +1,22 @@
+{
+  "type": "overgeared:forging",
+  "category": "armors",
+  "tier": "stone",
+  "hammering": 4,
+  "need_quenching": false,
+  "has_polishing": false,
+  "pattern": [
+    "###",
+    "# #",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "minecraft:golden_leggings"
+  },
+  "show_notification": true
+}

@@ -83,6 +83,17 @@ public abstract class AbstractSmithingAnvil extends BlockWithEntity {
     @Override
     public abstract VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context);
 
+    /**
+     * BlockWithEntity defaults to INVISIBLE (relying entirely on a block entity renderer) - the
+     * anvil's own geometry comes from its blockstate/model, so this needs to opt back into normal
+     * model rendering. Without this the anvil renders fine as an item/in creative (that path is
+     * unrelated to getRenderType) but vanishes entirely once placed in the world.
+     */
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
+    }
+
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {

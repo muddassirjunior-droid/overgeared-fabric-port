@@ -1,0 +1,21 @@
+{
+  "type": "overgeared:forging",
+  "category": "armors",
+  "tier": "stone",
+  "hammering": 3,
+  "need_quenching": false,
+  "has_polishing": false,
+  "pattern": [
+    "# #",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "tag": "overgeared:copper_plates"
+    }
+  },
+  "result": {
+    "item": "overgeared:copper_boots"
+  },
+  "show_notification": true
+}

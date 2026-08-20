@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "overgeared:item/tipped_diamond_arrow_head",
+    "layer1": "overgeared:item/tipped_diamond_arrow_base"
+  }
+}

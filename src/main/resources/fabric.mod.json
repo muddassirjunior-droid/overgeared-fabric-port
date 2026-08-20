@@ -12,7 +12,8 @@
   "environment": "*",
   "entrypoints": {
     "main": ["net.stirdrem.overgeared.Overgeared"],
-    "client": ["net.stirdrem.overgeared.client.OvergearedClient"]
+    "client": ["net.stirdrem.overgeared.client.OvergearedClient"],
+    "modmenu": ["net.stirdrem.overgeared.client.config.OvergearedConfigScreen"]
   },
   "mixins": ["overgeared.mixins.json"],
   "accessWidener": "overgeared.accesswidener",
