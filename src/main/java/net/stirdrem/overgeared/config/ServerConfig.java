@@ -434,18 +434,18 @@ public class ServerConfig {
 
                                 // copper
                                 List.of("minecraft:copper_ingot", "copper", 9),
-                                List.of("#c:nuggets/copper", "copper", 1),
+                                List.of("#c:copper_nuggets", "copper", 1),
                                 List.of("minecraft:copper_block", "copper", 81),
 
                                 // steel
-                                List.of("#c:ingots/steel", "steel", 9),
-                                List.of("#c:nuggets/steel", "steel", 1),
-                                List.of("#c:storage_blocks/steel", "steel", 81),
+                                List.of("#c:steel_ingots", "steel", 9),
+                                List.of("#c:steel_nuggets", "steel", 1),
+                                List.of("#c:steel_blocks", "steel", 81),
 
                                 //silver
-                                List.of("#c:ingots/silver", "silver", 9),
-                                List.of("#c:nuggets/silver", "silver", 1),
-                                List.of("#c:storage_blocks/silver", "silver", 81)
+                                List.of("#c:silver_ingots", "silver", 9),
+                                List.of("#c:silver_nuggets", "silver", 1),
+                                List.of("#c:silver_blocks", "silver", 81)
                         ),
                         entry -> entry instanceof List<?> list &&
                                 list.size() == 3 &&
