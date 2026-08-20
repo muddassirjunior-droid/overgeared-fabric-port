@@ -5,13 +5,16 @@ import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.color.item.ItemColorProvider;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.potion.PotionUtil;
 import net.minecraft.util.Identifier;
 import net.stirdrem.overgeared.block.entity.AbstractSmithingAnvilBlockEntity;
 import net.stirdrem.overgeared.block.entity.ModBlockEntities;
@@ -71,6 +74,15 @@ public class OvergearedClient implements ClientModInitializer {
         registerArrowPotionTypeProvider(ModItems.IRON_UPGRADE_ARROW);
         registerArrowPotionTypeProvider(ModItems.STEEL_UPGRADE_ARROW);
         registerArrowPotionTypeProvider(ModItems.DIAMOND_UPGRADE_ARROW);
+
+        // layer0 (the "*_head" texture, despite the name - see upgradeArrowModel in the Forge
+        // datagen) is the tintable potion-coating layer; layer1 ("*_base") is pre-colored art
+        // and always renders at full white (no tint).
+        ItemColorProvider arrowColorProvider = (stack, tintIndex) ->
+                tintIndex == 0 && stack.hasNbt() ? PotionUtil.getColor(stack) : 0xFFFFFFFF;
+        ColorProviderRegistry.ITEM.register(arrowColorProvider,
+                ModItems.IRON_UPGRADE_ARROW, ModItems.STEEL_UPGRADE_ARROW,
+                ModItems.DIAMOND_UPGRADE_ARROW, ModItems.LINGERING_ARROW);
     }
 
     /**
