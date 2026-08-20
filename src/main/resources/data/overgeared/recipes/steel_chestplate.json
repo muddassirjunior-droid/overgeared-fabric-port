@@ -1,21 +1,27 @@
 {
-  "type": "overgeared:forging",
   "category": "armors",
+  "group": "",
   "hammering": 5,
-  "need_quenching": false,
   "has_polishing": false,
-  "pattern": [
-    "# #",
-    "###",
-    "###"
-  ],
+  "has_quality": true,
   "key": {
     "#": {
       "item": "overgeared:steel_plate"
     }
   },
+  "minimum_quality": "poor",
+  "need_quenching": false,
+  "needs_minigame": false,
+  "pattern": [
+    "# #",
+    "###",
+    "###"
+  ],
+  "quality_difficulty": "none",
+  "requires_blueprint": false,
   "result": {
     "item": "overgeared:steel_chestplate"
   },
-  "show_notification": true
+  "show_notification": true,
+  "type": "overgeared:forging"
 }

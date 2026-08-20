@@ -1,14 +1,15 @@
 {
-  "type": "overgeared:cast_blasting",
   "category": "misc",
-  "tool_type": "axe",
+  "cookingtime": 75,
+  "experience": 1.0,
+  "group": "misc",
   "input": {
     "gold": 27
   },
+  "need_polishing": true,
   "result": {
     "item": "overgeared:golden_axe_head"
   },
-  "need_polishing": true,
-  "experience": 1.0,
-  "cookingtime": 75
+  "tool_type": "axe",
+  "type": "overgeared:cast_blasting"
 }

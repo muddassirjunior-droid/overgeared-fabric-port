@@ -1,23 +1,25 @@
 {
-  "type": "overgeared:forging",
   "category": "misc",
-  "tier": "iron",
+  "group": "",
   "hammering": 3,
   "has_quality": false,
-  "need_quenching": false,
-  "has_polishing": false,
-  "pattern": [
-    "###",
-    " ##",
-    "# #"
-  ],
   "key": {
     "#": {
       "item": "overgeared:steel_nugget"
     }
   },
+  "need_quenching": false,
+  "needs_minigame": false,
+  "pattern": [
+    "###",
+    " ##",
+    "# #"
+  ],
+  "quality_difficulty": "none",
   "result": {
     "item": "overgeared:steel_arrow_head"
   },
-  "show_notification": true
+  "show_notification": true,
+  "tier": "iron",
+  "type": "overgeared:forging"
 }

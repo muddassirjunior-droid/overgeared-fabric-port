@@ -1,14 +1,15 @@
 {
-  "type": "overgeared:cast_blasting",
   "category": "misc",
-  "tool_type": "sword",
+  "cookingtime": 75,
+  "experience": 0.7,
+  "group": "misc",
   "input": {
     "iron": 18
   },
+  "need_polishing": true,
   "result": {
     "item": "overgeared:iron_sword_blade"
   },
-  "need_polishing": true,
-  "experience": 0.7,
-  "cookingtime": 75
+  "tool_type": "sword",
+  "type": "overgeared:cast_blasting"
 }

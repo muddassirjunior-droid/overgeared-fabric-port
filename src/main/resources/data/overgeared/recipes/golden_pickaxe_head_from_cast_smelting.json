@@ -1,14 +1,15 @@
 {
-  "type": "overgeared:cast_smelting",
   "category": "misc",
-  "tool_type": "pickaxe",
+  "cookingtime": 150,
+  "experience": 1.0,
+  "group": "misc",
   "input": {
     "gold": 27
   },
+  "need_polishing": true,
   "result": {
     "item": "overgeared:golden_pickaxe_head"
   },
-  "need_polishing": true,
-  "experience": 1.0,
-  "cookingtime": 150
+  "tool_type": "pickaxe",
+  "type": "overgeared:cast_smelting"
 }

@@ -1,23 +1,25 @@
 {
-  "type": "overgeared:forging",
   "category": "misc",
-  "tier": "stone",
+  "group": "",
   "hammering": 2,
   "has_quality": false,
-  "need_quenching": false,
-  "has_polishing": false,
-  "pattern": [
-    "###",
-    " ##",
-    "# #"
-  ],
   "key": {
     "#": {
       "item": "minecraft:iron_nugget"
     }
   },
+  "need_quenching": false,
+  "needs_minigame": false,
+  "pattern": [
+    "###",
+    " ##",
+    "# #"
+  ],
+  "quality_difficulty": "none",
   "result": {
     "item": "overgeared:iron_arrow_head"
   },
-  "show_notification": true
+  "show_notification": true,
+  "tier": "stone",
+  "type": "overgeared:forging"
 }

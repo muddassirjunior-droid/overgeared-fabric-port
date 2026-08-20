@@ -1,14 +1,15 @@
 {
-  "type": "overgeared:cast_smelting",
   "category": "misc",
-  "tool_type": "pickaxe",
+  "cookingtime": 150,
+  "experience": 0.5,
+  "group": "misc",
   "input": {
     "copper": 27
   },
+  "need_polishing": true,
   "result": {
     "item": "overgeared:copper_pickaxe_head"
   },
-  "need_polishing": true,
-  "experience": 0.5,
-  "cookingtime": 150
+  "tool_type": "pickaxe",
+  "type": "overgeared:cast_smelting"
 }

@@ -1,14 +1,15 @@
 {
-  "type": "overgeared:cast_smelting",
   "category": "misc",
-  "tool_type": "hoe",
+  "cookingtime": 150,
+  "experience": 0.5,
+  "group": "misc",
   "input": {
     "copper": 18
   },
+  "need_polishing": true,
   "result": {
     "item": "overgeared:copper_hoe_head"
   },
-  "need_polishing": true,
-  "experience": 0.5,
-  "cookingtime": 150
+  "tool_type": "hoe",
+  "type": "overgeared:cast_smelting"
 }

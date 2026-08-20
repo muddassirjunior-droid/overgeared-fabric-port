@@ -1,0 +1,15 @@
+{
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "overgeared:steel_sword_blade"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "overgeared:steel_sword"
+  },
+  "type": "overgeared:crafting_shapeless"
+}
